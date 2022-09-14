@@ -8,10 +8,10 @@
   <script src="tooling/smpte.js"></script>
   <link rel="stylesheet" href="tooling/smpte.css" />
   <meta itemprop="pubType" content="AG" />
-  <meta itemprop="pubNumber" content="25" />
-  <meta itemprop="pubState" content="published" />
-  <meta itemprop="pubDateTime" content="2022-07-05" />
-  <title>Use of JSON in Engineering Documents</title>
+  <meta itemprop="pubNumber" content="21" />
+  <meta itemprop="pubState" content="draft" />
+  <meta itemprop="pubDateTime" content="2022-09-14" />
+  <title>IANA MIME Type Registration</title>
 </head>
 
 <body>
@@ -22,309 +22,351 @@
 
   <section id="sec-scope">
     <h2>Scope</h2>
-    <p>This Administrative Guideline specifies selected uses of the JavaScript Object Notation (JSON) in SMPTE
-      Engineering Documents.</p>
+    <p>This Administrative Guideline provides the process of registering a MIME Type that is based on a SMPTE Engineering Document.</p>
   </section>
 
   <section id="sec-conformance"></section>
 
   <section id="sec-normative-references">
     <ul>
-      <li><cite id="bib-ietf-rfc-3986">IETF RFC 3986</cite>, Uniform Resource
-      Identifiers (URI): Generic Syntax, T. Berners-Lee, et al., January 2005. <a>http://www.ietf.org/rfc/rfc3986.txt</a></li>
-      <li><cite id="bib-ietf-rfc-5234">IETF RFC 5234</cite>, “Augmented BNF for
-      Syntax Specifications: ABNF”, D. Crocker, January 2008. <a>https://www.rfc-editor.org/rfc/rfc5234.txt</a></li>
-      <li><cite id="bib-ietf-rfc-7405">IETF RFC 7405</cite>, “Case-Sensitive
-      String Support in ABNF”, P. Kyzivat, December 2014. <a>https://datatracker.ietf.org/doc/html/rfc7405.txt</a></li>
-      <li><cite id="bib-ietf-rfc-8259">IETF RFC 8259</cite>, The JavaScript
-      Object Notation (JSON) Data Interchange Format, T. Bray, <a>http://www.ietf.org/rfc/rfc8259.txt</a></li>
+      <li><cite id="bib-ietf-rfc-6838">IETF RFC 6838</cite>, "Media Type Specifications 
+        and Registration Procedures", January 2013. <a href="https://datatracker.ietf.org/doc/html/rfc6838">https://datatracker.ietf.org/doc/html/rfc6838</a></li>
     </ul>
   </section>
 
-  <section id="sec-smpte-json-structures">
-    <h2>SMPTE JSON structures</h2>
-    <section id="sec-overview">
-      <h3>Overview (informative)</h3> 
-      The JSON Schema resource applicable to a JSON structure can specify constraints to which the structure is expected to conform.
-    </section>
-    
-    <section id="sec-json-structures">
-      <h3>JSON Structures</h3>
-      
+  <section id="sec-process-for-registering-a-mime-type">
+    <h2>Process for Registering a MIME Type</h2>
+    <section id="sec-general">
+      <h3>General</h3>
       <p>
-        A <dfn>SMPTE JSON structure</dfn> is any data structure that (a) is specified by an
-        Engineering Document and (b) conforms to <a
-        href="#bib-ietf-rfc-8259"></a> (i.e., a JSON document), whether within
-        the prose or as an Additional Element.
+        Listed below are the steps to register with IANA a new MIME Type based on a SMPTE Engineering Document 
+        using their Standards Tree registration described in IETF RFC 6838. If a corresponding MIME Type 
+        already exists, then there is no need to go through this process.
       </p>
       
       <p>
-        The structure of each <a>SMPTE JSON structure</a> shall be normatively specified
-        the Engineering Document.
+        IANA, in accordance with RFC 6838, requires the final registration template to be published in an 
+        Engineering Document. The template should be published as an Annex of the document that defines the 
+        media type (either as part of the original publication, as an amendment, or as a revision). In most 
+        cases, the Engineering Document type should be a Standard. An RP may be used if the defining document 
+        is an RP. If the registration applies to multiple standards, the registration may be published as an 
+        Amendment to any of the referenced Standards or as a separate RP.
       </p>
-      <p>
-        Each SMPTE JSON structure should be informatively specified by a JSON Schema
-        resource, which may be a SMPTE JSON Schema resource (see section 5), using
-        the JSON Schema language as specified in <a href="#bib-draft-bhutton-json-schema-00"></a>.
-      </p>
-    </section>
-    
-  </section>
-
-<section id="sec-smpte-json-schema-resources">
-  <h2>SMPTE JSON Schema resources</h2>
-  
-  <section id="sec-introduction">
-    <h3>Introduction (informative)</h3>
-    
-    <p>Using the formal language of JSON Schema, descriptions of conformance
-    requirements for JSON structures can avoid some of the ambiguity inherent with
-    using English prose alone, while allowing the use of existing commercial tools
-    to facilitate testing and validation. It can also represent a significant
-    convenience to implementers, for example by supporting the ability to
-    automatically validate structures.</p>
-    
-    <p>Sample relative link to a <a href="sample.png">picture</a>.</p>
-
-  </section>
-  
-  <section id="sec-canonical-uri">
-    <h3>Canonical URI</h3>
-    
-    <section id="sec-id-keyword">
-      <h4><code>$id</code> Keyword</h4>
-      
-      <p>A SMPTE JSON Schema resource shall use the <code>$id</code> keyword in the root schema
-      object, thereby providing the canonical URI for the JSON root schema.</p>
-    </section>
-    
-    <section id="sec-canonical-uri-syntax">
-      <h4>Canonical URI Syntax</h4>
-      
-      The canonical URI shall conform to the <code>SCHEMAID</code> syntax below,
-      specified using <a href="#bib-ietf-rfc-5234"></a> and <a
-      href="#bib-ietf-rfc-7405"></a> and conforming to <a
-      href="#bib-ietf-rfc-3986"></a>.
-      
-<pre>
-SCHEMAID = %s"https://www.smpte-ra.org/json-schema/" PUBNUM "/" REVISION [ "/" SHORTNAME]
-SHORTNAME = 1*4("/" 1*(ALPHA / DIGIT / "-" / "_" / ".") )
-PUBNUM = 1*(DIGIT) ["-" 1*(DIGIT)]
-REVISION = STABLEREV
-STABLEREV = 4(DIGIT) [2(DIGIT)]
-</pre>
-      
-      <p><code>PUBNUM</code> shall represent the official publication number of the
-      Engineering Document, without leading zeroes and including a part number, if
-      any, separated by a hyphen, e.g., 456-1.</p>
-      
-      <p class="note">The <code>REVISION</code> component of a stable SMPTE JSON
-      Schema canonical URI does not necessarily correspond to the publication
-      date of its defining Engineering Document. For instance, the defining
-      Engineering Document can be revised in such a way that the contents of the
-      JSON Schema remain unchanged.</p>
-      
-      <p class="note">
-        No changes to SMPTE JSON Schema canonical URI are necessary following a Draft
-        Publication ballot since SMPTE JSON Schema canonical URI are constructed
-        independently of the publication date of the Engineering Document.
-      </p>
-    </section>
-    
-    <section id="sec-examples">
-      <h4>Examples (informative)</h4>
-      The following is an example SMPTE JSON Schema resource canonical URI:
-      
-      <pre>https://www.smpte-ra.org/json-schema/456/2021/foo</pre>
-      
-      <p><a href="#table-examples"></a> lists examples.</p>
-
-      <table id="table-examples">
-        <caption>Examples</caption>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>URI</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Hello</td>
-            <td>https://www.smpte-ra.org/json-schema/456/2021/foo</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-    
-    <section id="sec-registration">
-      <h4>Registration (informative)</h4>
       
       <p>
-        The SMPTE JSON Schema resource canonical URI syntax ensures uniqueness across
-        Engineering Documents, and thus no specific registration steps are required.
+        An example of the body text for an Amendment that specifies a MIME Type Registration Template is 
+        shown in Annex B.
       </p>
-
-      <p><a href="#figure-process-flowchart"></a> shows an example of the process.</p>
-
-      <figure id="figure-process-flowchart">
-        <figcaption>Example of the Process</figcaption>
-        <img class="figure" src="sample.png">
-      </figure>
       
+      <p>
+        The following steps in this section shall be performed.
+      </p>
     </section>
-  </section>
+    
+    <section id="sec-preparation">
+      <h3>Preparation</h3>
+      
+      <p>
+        The Editor should read the following RFCs (or RFCs that have obsoleted them) 
+        before proceeding with an application for a MIME Type. It is important to understand 
+        the application process and requirements completely. These documents are the standards 
+        for Media Types:
+        <ul>
+          <li><a href="https://www.iana.org/go/rfc2045">RFC 2045</a> – MIME formats and encodings</li>
+          <li><a href="https://www.iana.org/go/rfc2046">RFC 2046</a> – Definition of media types</li>
+          <li><a href="https://www.iana.org/go/rfc2077">RFC 2077</a> – Model top-level media type</li>
+          <li><a href="https://www.iana.org/go/rfc7303">RFC 7303</a> – XML Media Types</li>
+          <li><a href="https://www.iana.org/go/rfc6657">RFC 6657</a> – Update to MIME regarding “charset” Parameter Handling in Textual Media Types</li>
+          <li><a href="https://www.iana.org/go/rfc6838">RFC 6838</a> – Media type specifications and registration procedures</li>
+        </ul>
+      </p>
+      <p>
+        After completing the research and verifying that there is not an existing MIME 
+        Type that can be referenced, the Editor should collect the information required 
+        in RFC 6838 to register the MIME Type and populating a draft registration template, 
+        such as the one in <a>Annex A – Draft Application Template</a>.
+      </p>
+    </section>
   
-  <section id="sec-using-a-smpte-json-schema-resource">
-    <h3>Using a SMPTE JSON Schema Resource</h3>
-    
-    <p>A SMPTE JSON Schema resource can be used informatively by an Engineering
-    Document, either by inclusion or by reference.</p>
-    
-    <p class="note">The current specification of JSON Schema, though well-supported, is not a
-    normatively referenceable document per the Standards Operations Manual (section
-    10 Normative References) and AG-03. Thus, provision of SMPTE JSON Schema
-    resources, at this time, is strictly informative.</p>
-  </section>
-    
-  <section id="sec-version">
-    <h3>Version</h3>
-    
-    <p>
-      Whenever a SMPTE JSON Schema resource is provided, the Engineering Document
-      shall provide an informative reference to the JSON Schema language specification
-      to which it conforms (e.g., JSON Schema, as shown in the Bibliography).
-    </p>
-    
-    <p>
-      A SMPTE JSON Schema resource shall use the <code>$schema</code> keyword in the root schema
-      object.
-    </p>
-    
-    <p class="note">
-      the <code>$schema</code> keyword is both used as JSON Schema dialect identifier and
-      as the identifier of a resource which is itself a JSON Schema resource to
-      evaluate conformance to that dialect.
-    </p>
-    
-    <p class="note">
-      JSON Schema resources can comprise subschemas, where portions of a root
-      schema document are separately identifiable by a URI-reference that are not
-      absolute and/or contain non-empty fragments.  For example,
-      <code>https://smpte-ra.org/schemas/2120-2/2021/smpte-tlx-items/definitions/rationalType</code>
-      is a reference to a subschema within the SMPTE JSON Schema resource
-      <code>https://smpte-ra.org/schemas/2120-2/2021/smpte-tlx-items</code>
-      where the subschema represents the constraints for a JSON structure
-      representing a rational value.
-    </p>
-    
-  </section>
+    <section id="sec-draft-registration">
+      <h3>Draft Registration</h3>
+      <p>
+        The Engineering Document follows the due process defined in the Standards 
+        OM. If desired, the Editor may request that the TC Chair submit a 
+        provisional registration request once the project is approved to hold 
+        the type name. Once the CD has been finalized, the Editor shall request 
+        that the TC Chair submit the draft registration request to IANA.
+      </p>
+    </section>
   
-  <section id="sec-keyword-order">
-    <h3>Keyword Order</h3>
+    <section id="sec-online-application">
+      <h3>Online Application</h3>
+      <p>
+        The TC Chair shall submit the draft registration by filling out the application 
+        (<a href="https://www.iana.org/form/media-types">https://www.iana.org/form/media-types</a>) 
+        with the following information from the approved template. Any items that are not 
+        applicable shall be filled out with N/A. Do not use words like “none” that 
+        might be interpreted incorrectly.
+      </p>
+      
+      <section id="sec-your-full-name">
+        <h4>Your Full Name (Required)</h4>
+        <p>
+          This shall be the name of the TC chair submitting the registration for review.
+        </p>
+      </section>
+      
+      <section id="sec-your-e-mail">
+        <h4>Your E-mail (Required)</h4>
+        <p>
+          This shall be the Teams email address (@m.smpte.org) of the TC Chair submitting the registration for review.
+        </p>
+      </section>
+      
+      <section id="sec-type-name">
+        <h4>Type Name (Required)</h4>
+        <p>
+          What is the media type name? This should be copied from the approved template.
+        </p>
+      </section>
+      
+      <section id="sec-subtype-name">
+        <h4>Subtype Name (Required)</h4>
+        <p>
+          What is the media subtype name? This should be copied from the approved template.
+        </p>
+      </section>
+      
+      <section id="sec-your-full-name">
+        <h4>Your Full Name (Required)</h4>
+        <p>
+        </p>
+      </section>
+      
+      <section id="sec-required-parameters">
+        <h4>Required Parameters (Required)</h4>
+        <p>
+          Describe the required parameters. This should be copied from the approved template.
+        </p>
+      </section>
+      
+      <section id="sec-optional-parameters">
+        <h4>Optional Parameters (Required)</h4>
+        <p>
+          Describe the optional parameters. This should be copied from the approved template.
+        </p>
+      </section>
+      
+      <section id="sec-encoding-considerations">
+        <h4>Encoding Consierations (Required)</h4>
+        <p>
+          Select between; 7-bit text, 8-bit text, binary or framed. Provide additional 
+          notes if necessary. This should be copied from the approved template.
+        </p>
+      </section>
+      
+      <section id="sec-security-considerations">
+        <h4>Security Considerations (Required)</h4>
+        <p>
+          Provide a discussion of the security considerations. This should be copied from the approved template.
+        </p>
+      </section>
+      
+      <section id="sec-interoperability-considerations">
+        <h4>Interoperability Considerations (Required)</h4>
+        <p>
+          Provide a discussion of the interoperability considerations. This should be copied from the approved template.
+        </p>
+      </section>
+      
+      <section id="sec-published-specification">
+        <h4>Published specification (Required)</h4>
+        <p>
+          If the Standard has already been published (e.g., if the registration is being published as an Amendment), 
+          provide references to the published specification. If applicable, this should be copied from the approved template.
+        </p>
+      </section>
+      
+      <section id="sec-application-usage">
+        <h4>Application Usage (Required)</h4>
+        <p>
+          Describe applications which use this media type. This should be copied from the approved template.
+        </p>
+      </section>
+      
+      <section id="sec-fragment-identifier-considerations">
+        <h4>Fragment Identifier Considerations (Optional)</h4>
+        <p>
+          This should be copied from the approved template.
+        </p>
+      </section>
+      
+      <section id="sec-restrictions-on-usage">
+        <h4>Restrictions on Usage</h4>
+        <p>
+          This should be copied from the approved template.
+        </p>
+      </section>
+      
+      <section id="sec-provisional-registrations">
+        <h4>Provisional Registrations (Optional)</h4>
+        <p>
+          Check “Yes.” After the document is published, the Director of Standards will check “No” when the final registration is submitted.
+        </p>
+      </section>
+      
+      <section id="sec-additional-information">
+        <h4>Additional Information (Required)</h4>
+        <p>
+          There are subcategories here to be copied from the approved template.
+          <ul>
+            <li>Deprecated alias names of this type</li>
+            <li>Magic number(s)</li>
+            <li>File extension(s)</li>
+            <li>Macintosh File Type Code(s)</li>
+            <li>Object Identifier(s) or OID(s) – See <a>RFC 1494</a></li>
+          </ul>
+        </p>
+      </section>
+      
+      <section id="sec-intended-usage">
+        <h4>Intended Usage (Required)</h4>
+        <p>
+          These three categories and detail to be copied from the approved template. 
+          Note that at the time this AG is published, there is a free-form text box 
+          below the pull-down menu that is required and can simply match the contents 
+          of the pulldown if no further text is provided by the Editor.
+          <ul>
+            <li>Common</li>
+            <li>Limited Use</li>
+            <li>Obsolete</li>
+          </ul>
+        </p>
+      </section>
+       
+      <section id="sec-other-information">
+        <h4>Other Information & Comments (Optional)</h4>
+        <p>
+          This shall be filled out with the following text:
+        </p>
+        <p>
+          <quote>
+            IMPORTANT: This is a draft presented as a request for feedback from IANA experts. 
+            We respectfully request a provisional registration while the document is in process.
+          </quote>
+        </p>
+      </section>
+      
+      <section id="sec-contact-person">
+        <h4>Contact Person</h4>
+        <p>
+          The contact person shall “Director of Standards” and the contact email shall be 
+          <a href="mailto:standards-support@smpte.org">standards-support@smpte.org</a>.
+        </p>
+      </section>
+     
+    </section>
+  
+    <section id="sec-iana-response-to-application">
+      <h3>IANA Response to Application</h3>
+      <p>
+        IANA is generally responsive and will likely send a confirmation that the 
+        draft registration has been received and in some cases might request 
+        additional information. For instance, if the referenced standard is behind a 
+        paywall, the TC chair should be prepared to supply a liaison copy of the referenced standard. 
+        The TC Chair should ensure that the IANA representative understands that SMPTE is 
+        requesting expert feedback on the submission. The submitting TC chair shall submit any 
+        feedback received as one or more comments against the FCD ballot.
+      </p>
+      <p>
+        The SMPTE Engineering Document development process is then followed. Further changes 
+        may be made as a result of document reviews or comment resolution according to the due 
+        process defined by the Standards OM.
+      </p>
+    </section>
+  
+    <section id="sec-publication">
+      <h3>Publication</h3>
+      <p>
+        Once the document has been published, the Editor should notify the Director of 
+        Standards to submit the final registration. The registration template information 
+        should be copied directly from the published document, and the “Provisional Registrations” 
+        field is set to “No”, as the request represents the final registration, and with 
+        the “Other Information & Comments” field filled as follows:
+      </p>
+      <p>
+        <quote>
+        This registration request corresponds to a previously accepted provisional registration request. 
+        The related SMPTE document has since been formally published as represented herein. 
+        Final publication of this registration is respectfully requested.
+        </quote>
+      </p>
+      <p>
+        The Director of Standards should forward the tracking number back to the 
+        Editor for tracking the progress of the request to Acceptance.
+      </p>
+    </section>
     
-    <p>The following keywords should appear as the first keywords in any SMPTE JSON Schema resource in this order:</p>
-    
-    <ul>
-      <li><code>$schema,</code> as specified in <a href="#sec-version"></a></li>
-      <li><code>$id,</code> as specified in <a href="#sec-id-keyword"></a>; and,</li>
-      <li><code>$comment,</code> as specified in <a
-      href="#sec-cc-license-schema-resources"></a>.</li>
-    </ul>
+  </section>
 
-  </section>
+<section id="sec-annex-a">
+  <h2>Annex A – Draft Application Template</h2>
+  <p>
+    The following template may be used to fulfill the requirements of <a>section 4.2</a>.  
+    This template is based on the template provided in RFC 6838 and this annex 
+    can be updated as necessary as that document is superseded.  
+    Further information on each field in the registration template is available in RFC 6838.
+  </p>
+  <p>
+    Registration Template
+    <a>TABLE GOES HERE</a>
+  </p>
 </section>
-
-<section id="sec-copyright-and-license">
-  <h2>Copyright and License</h2>
   
-  <section id="sec-license">
-    <h3>License</h3>
-    
-    <p>
-      Any SMPTE JSON structure or SMPTE JSON Schema resource, whether provided within
-      the prose or as an Additional Element of an Engineering Document, shall be
-      licensed according to <a href="#sec-json-document-license"></a>.
-    </p>
-    
-    <p class="note">
-      The license portion of Annex A is verbatim the BSD-3-Clause license
-      available at <a>https://spdx.org/licenses/BSD-3-Clause.html</a>.
-    </p>
-  </section>
+<section id="sec-annex-b">
+  <h2>Annex B – Example Registration</h2>
+  <p>
+    This amendment contains the registration template for the image/dpx MIME type.
+  </p>
   
-  <section id="sec-cc-license-schema-resources">
-    <h3>Copyright and License in SMPTE JSON Schema resources</h3>
-    
-    Any SMPTE JSON Schema resource shall include the copyright and license
-    provided in <a href="#sec-json-document-license"></a> in the form of the
-    <code>$comment</code> element specified in <a href="#sec-license-element"></a>.
-  </section>
-</section>
-
-<section class="annex" id="sec-json-document-license">
-  <h2>JSON Document License</h2>
-
-  <section id="sec-copyright-element">
-    <h3>Copyright Element</h3>
-<pre>
-Copyright (c), Society of Motion Pictures and Television Engineers. 
-
-Redistribution and use in source and binary forms, with or without modification,
-are permitted provided that the following conditions are met: 
-</pre>
-<p><a href="#table-copyright-forms"></a> lists copyright forms.</p>
-<table id="table-copyright-forms">
-  <caption>Copyright Forms</caption>
-  <thead>
-    <tr>
-      <th>Name</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>(c)</td>
-    </tr>
-    <tr>
-      <td>©</td>
-    </tr>
-  </tbody>
-</table>
-  </section>
-
-  <section id="sec-license-element">
-    <h3>License Element</h3>
-
-  <p>The following example JSON Schema incorporates the above element in
-  accordance with <a href="#sec-cc-license-schema-resources"></a>, with the initial
-  keyword order recommended in <a href="#sec-keyword-order"></a>.</p>
-
-<pre>
-{
-  "$schema": "https://json-schema.org/draft/2020-12/meta/core",
-  "$id": "https://smpte-ra.org/json-schema/2199-1/2022/foo",
-  "$comment": "Copyright (c), Society of Motion Pictures and Television Engineers. Licensed under BSD-3-Clause (https://spdx.org/licenses/BSD-3-Clause.html).",
-  "title": "foo",
-  "type": "object",
-  "description": "This is an example schema for a fictitious foo object.",
-  "examples": [
-    {
-      "bar": "zyzx"
-    }
-}  
-</pre>
-
-  </section>
+  <p>
+    <a>TABLE GOES HERE</a>
+  </p>
 </section>
 
 <section id="sec-bibliographic-references">
   <ul>
-    <li><cite id="bib-draft-bhutton-json-schema-00">IETF
-    draft-bhutton-json-schema-00</cite>, Wright, A., H. Andrews; B. Hutton, G.
-    Dennis, "JSON Schema: A Media Type for Describing JSON Documents", Work in
-    Progress, December 8, 2020.
-    <a>https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-00</a>
+    <li><cite id="bib-ietf-rfc-2045">IETF RFC 2045</cite>, 
+      "Multipurpose Internet Mail Extensions (MIME) Part One: Format of Internet Message Bodies", 
+      November, 1996.
+      <a href="https://datatracker.ietf.org/doc/html/rfc2045">https://datatracker.ietf.org/doc/html/rfc2045</a>
     </li>
+    
+    <li><cite id="bib-ietf-rfc-2046">IETF RFC 2046</cite>, 
+      "Multipurpose Internet Mail Extensions (MIME) Part Two: Media Types", November, 1996.
+      <a href="https://datatracker.ietf.org/doc/html/rfc2046">https://datatracker.ietf.org/doc/html/rfc2046</a>
+    </li>
+    
+        
+    <li><cite id="bib-ietf-rfc-2077">IETF RFC 2077</cite>, 
+      "The Model Primary Content Type for Multipurpose Internet Mail Extensions", January, 1997.
+      <a href="https://datatracker.ietf.org/doc/html/rfc2077">https://datatracker.ietf.org/doc/html/rfc2077</a>
+    </li>
+
+        
+    <li><cite id="bib-ietf-rfc-6657">IETF RFC 6657</cite>, 
+      "Update to MIME regarding “charset” Parameter Handling in Textual Media Types", July, 2012.
+      <a href="https://datatracker.ietf.org/doc/html/rfc6657">https://datatracker.ietf.org/doc/html/rfc6657</a>
+    </li>
+
+        
+    <li><cite id="bib-ietf-rfc-7303">IETF RFC 7303</cite>, 
+      "XML Media Types", July, 2014.
+      <a href="https://datatracker.ietf.org/doc/html/rfc7303">https://datatracker.ietf.org/doc/html/rfc7303</a>
+    </li>
+
   </ul>
+  
 </section>
 
 </body>
