@@ -1,4 +1,4 @@
-# SMPTE AG-21 - IANA MIME Type Registration
+# SMPTE _AG-21_ - _IANA MIME Type Registration_
 
 _This repository is *public*._
 
