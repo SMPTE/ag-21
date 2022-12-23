@@ -1,49 +1,28 @@
-<!DOCTYPE html lang="en">
+<!DOCTYPE html>
 <html>
 
 <head itemscope="itemscope" itemtype="http://smpte.org/standards/documents">
   <meta charset="utf-8" />
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <script src="tooling/smpte.js"></script>
-  <link rel="stylesheet" href="tooling/smpte.css" />
-  <!-- Do not edit above this line -->
-  <!-- Start of editable section in header-->
-  <!-- Update only content attributes in each meta element below as needed -->
+  <script src="../tooling/smpte.js"></script>
+  <link rel="stylesheet" href="../tooling/css/smpte.css" />
   <meta itemprop="pubType" content="AG" />
   <meta itemprop="pubNumber" content="21" />
-  <meta itemprop="pubState" content="published" />
+  <meta itemprop="pubState" content="pub" />
   <meta itemprop="pubDateTime" content="2022-12-06" />
-  <!-- update text for title element as needed -->
   <title>IANA MIME Type Registration</title>
-  <!-- End of editable section in header-->
 </head>
 
 <body>
 
-  <!-- Start of TOC - Do not remove or add anything in this section, generation is automated -->
-  <section id="sec-toc"></section>
-  <!-- End of TOC -->
-
-  <!-- Start of Forward - Do not remove or add anything in this section, generation is automated -->
-  <section id="sec-foreword"></section>
-  <!-- End of Forward -->
-
-  <!-- Start of Scope - Do not remove this section -->
   <section id="sec-scope">
-    <!-- Add paragraphs in this section as needed for scope -->
-    <p>This Administrative Guideline provides the process of registering a MIME Type that is based on a SMPTE Engineering Document.</p>
+    <p>
+      This Administrative Guideline provides the process of registering a MIME Type that is based on a SMPTE Engineering Document.
+    </p>
   </section>
-  <!-- End of Scope -->
-
-  <!-- Start of Conformance - Do not remove or add anything in this section, generation is automated -->
-  <section id="sec-conformance"></section>
-  <!-- End of Conformance -->
-
-  <!-- Start of Normative references - Do not remove this section -->
+ 
   <section id="sec-normative-references">
-
-    <!-- Add `li` sub elements as needed in this section as needed for references. If no Normative references, remove the entire `ul` element. Pre text for this section is auto generated based on `ul` present or not. -->
     <ul>
       <li><cite id="bib-smpte-standards-operations-manual">SMPTE Standards Operations Manual</cite>
         <a>https://www.smpte.org/about/policies-and-governance</a></li>
@@ -52,17 +31,6 @@
       </li>
     </ul>
   </section>
-  <!-- End of Normative references -->
-
-  <!-- Start of Terms and definitions - Do not remove this section -->
-  <section id="sec-terms-and-definitions">
-
-    <!-- Use the `ul` element to list external documents where Terms are defined (use same logic as referenced docs in the body of the document as example shows). Add `dt/dd` sub element pairs as needed for Terms to be defined internally in this document. Remove either the `ul` if no external Terms, or `dl` if no internally defined Terms. If no Terms needed to be defined at all, remove the both `ul` and `dl` elements. Pre text for this section is auto generated based on what elements are present. -->
-
-  </section>
-  <!-- End of Terms and definitions -->
-
-  <!-- Start of editable area. Add sections as needed, following the examples below. `id` attribue is required for each section (and subsection) for linking into TOC. Headers are required for labeling each section. Use `h2` element for top level, and `h3`, `h4`, etc. for nested sub sections as needed. For Annexes, add `class="annex"` to the top level section element, as example shows. Numbering is auto generated, including nesting. --> 
 
   <section id="sec-process-for-registering-a-mime-type">
     <h2>Process for Registering a MIME Type</h2>
@@ -89,7 +57,8 @@
       <h3>Preparation</h3>
       
       <p>
-        The Editor should read the following RFCs (or RFCs that have obsoleted them) before proceeding with an application for a MIME Type. It is important to understand the application process and requirements completely. These documents are the standards for Media Types:
+        The Editor should read the following RFCs (or RFCs that have obsoleted them) before proceeding with an application for a MIME Type. It is important to understand the application process and requirements completely. These documents are the standards for Media Types: </p>
+
         <ul>
           <li><a href="#bib-ietf-rfc-2045"></a> – MIME formats and encodings</li>
           <li><a href="#bib-ietf-rfc-2046"></a> – Definition of media types</li>
@@ -98,7 +67,6 @@
           <li><a href="#bib-ietf-rfc-6838"></a> – Media type specifications and registration procedures</li>
           <li><a href="#bib-ietf-rfc-7303"></a> – XML Media Types</li>
         </ul>
-      </p>
       <p>
         After completing the research and verifying that there is not an existing MIME Type that can be referenced, the Editor should collect the information required in <a href="#bib-ietf-rfc-6838"></a> to register the MIME Type and populating a draft registration template, such as the one in <a href="#sec-draft-application-template"></a>.
       </p>
@@ -113,9 +81,13 @@
   
     <section id="sec-online-application">
       <h3>Online Application</h3>
-      <p>
-        The TC Chair shall submit the draft registration by filling out the application (<a>https://www.iana.org/form/media-types</a>) with the following information from the approved template. Any items that are not applicable shall be filled out with <code>N/A</code>. Do not use words like “none” that might be interpreted incorrectly.
-      </p>
+
+      <section id="sec-app-overview">
+        <h4>Overview</h4>
+        <p>
+          The TC Chair shall submit the draft registration by filling out the application (<a>https://www.iana.org/form/media-types</a>) with the following information from the approved template. Any items that are not applicable shall be filled out with <code>N/A</code>. Do not use words like “none” that might be interpreted incorrectly.
+        </p>
+      </section>
       
       <section id="sec-your-full-name">
         <h4>Your Full Name (Required)</h4>
@@ -219,6 +191,7 @@
         <h4>Additional Information (Required)</h4>
         <p>
           There are subcategories here to be copied from the approved template.
+         </p>
           <ul>
             <li>Deprecated alias names of this type</li>
             <li>Magic number(s)</li>
@@ -226,19 +199,19 @@
             <li>Macintosh File Type Code(s)</li>
             <li>Object Identifier(s) or OID(s) – See <a href="#bib-ietf-rfc-1494"></a></li>
           </ul>
-        </p>
+       
       </section>
       
       <section id="sec-intended-usage">
         <h4>Intended Usage (Required)</h4>
         <p>
-          These three categories and detail to be copied from the approved template. Note that at the time this AG is published, there is a free-form text box below the pull-down menu that is required and can simply match the contents of the pulldown if no further text is provided by the Editor.
+          These three categories and detail to be copied from the approved template. Note that at the time this AG is published, there is a free-form text box below the pull-down menu that is required and can simply match the contents of the pulldown if no further text is provided by the Editor. </p>
           <ul>
             <li>Common</li>
             <li>Limited Use</li>
             <li>Obsolete</li>
           </ul>
-        </p>
+       
       </section>
        
       <section id="sec-other-information">
@@ -246,12 +219,11 @@
         <p>
           This shall be filled out with the following text:
         </p>
-        <p>
 <pre>
 IMPORTANT: This is a draft presented as a request for feedback from IANA experts. 
 We respectfully request a provisional registration while the document is in process.
 </pre>
-        </p>
+       
       </section>
       
       <section id="sec-contact-person">
@@ -278,7 +250,6 @@ We respectfully request a provisional registration while the document is in proc
       <p>
         Once the document has been published, the Editor should notify the Director of Standards to submit the final registration. The registration template information should be copied directly from the published document, and the <code>Provisional Registrations</code> field is set to <code>No</code>, as the request represents the final registration, and with the <code>Other Information & Comments</code> field filled as follows:
       </p>
-      <p>
 
 <pre>
 This registration request corresponds to a previously accepted provisional registration request. 
@@ -286,7 +257,6 @@ The related SMPTE document has since been formally published as represented here
 Final publication of this registration is respectfully requested.
 </pre>
 
-      </p>
       <p>
         The Director of Standards should forward the tracking number back to the Editor for tracking the progress of the request to Acceptance.
       </p>
@@ -392,7 +362,6 @@ Final publication of this registration is respectfully requested.
         </tr>
       </tbody>
     </table>
-    </p>
   </section>
   
   <section class="annex" id="sec-example-registration">
@@ -402,7 +371,6 @@ Final publication of this registration is respectfully requested.
     </p>
    
 <pre>
-
 1  Scope 
 This amendment contains the registration template for the image/dpx MIME type.
 
@@ -507,16 +475,11 @@ This amendment contains the registration template for the image/dpx MIME type.
 3   Add new Bibliography item
 The following text is added to the Bibliography:
 <a href="#bib-ietf-rfc-6838"></a> – Media Type Specifications and Registration Procedures.
-
-
 </pre>
     
   </section>
 
-<!-- End of editable sections -->
-
-<!-- Start of Bibliography - ONLY use if infomative references are present - If no Bibliographic references, remove the entire section. -->
-<section id="sec-bibliography">
+  <section id="sec-bibliography">
     <ul>
       <li><cite id="bib-ietf-rfc-1494">IETF RFC 1494</cite> – Equivalences between 1988 X.400 and RFC-822 Message Bodies, 08/1993. 
       <a>https://datatracker.ietf.org/doc/html/rfc1494</a>
@@ -542,9 +505,7 @@ The following text is added to the Bibliography:
     </ul>
   
   </section>
-<!-- End of Bibliography -->
 
-<!-- Do not edit below this line -->
 </body>
 
 </html>
